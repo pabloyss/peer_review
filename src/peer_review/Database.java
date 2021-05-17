@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Database {
 
-    private final Collection<Conferencia> conferencias;
-    private final Collection<Pesquisador> pesquisadores;
-    private final Collection<Artigo> artigos;
-    private Collection<RevisaoNotas> revisaoNotas;
-    private final Collection<Universidade> universidades;
-    private final Collection<TopicoPesquisa> topicosPesquisa;
+    private final List<Conferencia> conferencias;
+    private final List<Pesquisador> pesquisadores;
+    private final List<Artigo> artigos;
+    private List<RevisaoNotas> revisaoNotas;
+    private final List<Universidade> universidades;
+    private final List<TopicoPesquisa> topicosPesquisa;
 
     // Construtor
 
@@ -201,7 +201,7 @@ public class Database {
 		
 	}
 
-    public Collection<Artigo> buscaTodosArtigos() {
+    public List<Artigo> buscaTodosArtigos() {
         return this.artigos;
     }
     
@@ -218,7 +218,7 @@ public class Database {
     	
     }
 
-    public Collection<Pesquisador> buscaTodosPesquisadores() {
+    public List<Pesquisador> buscaTodosPesquisadores() {
         return this.pesquisadores;
     }
 
@@ -227,17 +227,17 @@ public class Database {
     	for(int i = 0; i < conferencias.size(); i++)
     	{
     		if(sigla  == ((ArrayList<Conferencia>) conferencias).get(i).getSigla());
-    			if()
+    			//if()
     	  return true;
     	}
     	return false;
     }
 
-    public Collection<RevisaoNotas> pegaTodasNotas() {
+    public List<RevisaoNotas> pegaTodasNotas() {
         return this.revisaoNotas;
     }
     
-    public void salvaNotas(Collection<RevisaoNotas> notas) {
+    public void salvaNotas(List<RevisaoNotas> notas) {
         this.revisaoNotas = notas;
     }
 }

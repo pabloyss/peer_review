@@ -1,8 +1,9 @@
 package peer_review;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.List;
 
 public class AtribuicaoNota implements OpcoesCommand {
 
@@ -11,10 +12,10 @@ public class AtribuicaoNota implements OpcoesCommand {
 	
 	@Override
 	public void execute() {
-		Database db = new Database(false);
-		ArrayList<Artigo> artigos;
-		ArrayList<Pesquisador> revisores;
-		int nota;
+		Database db = new Database(true);
+		List<Artigo> artigos;
+		List<Pesquisador> revisores;
+		int nota = -4;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 		artigos = db.buscaTodosArtigos();
@@ -24,7 +25,16 @@ public class AtribuicaoNota implements OpcoesCommand {
 		}
 
 		System.out.println("\nEscolha o ID do artigo para ser avaliado");
-		int id_artigo = Integer.parseInt(reader.readLine());
+		int id_artigo = -1;
+		try {
+			id_artigo = Integer.parseInt(reader.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		revisores = db.buscaTodosPesquisadores();
 
@@ -33,15 +43,32 @@ public class AtribuicaoNota implements OpcoesCommand {
 		}
 
 		System.out.println("\nEscolha o ID do revisor que irá avaliar");
-		int id_revisor = Integer.parseInt(reader.readLine());
+		int id_revisor = -1;
+		try {
+			id_revisor = Integer.parseInt(reader.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		System.out.println("\nInsira uma nota de -3 a 3");
-		int nota = Integer.parseInt(reader.readLine());
+		try {
+			nota = Integer.parseInt(reader.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		Artigo artigo = artigos.get(id_artigo - 1);
 		Pesquisador revisor = revisores.get(id_revisor - 1);
 
-		ArrayList<RevisaoNotas> revisao_notas = db.pegaTodasNotas();
+		List<RevisaoNotas> revisao_notas = db.pegaTodasNotas();
 
 		RevisaoNotas novaNota = new RevisaoNotas(artigo, revisor, nota);
 
@@ -49,11 +76,4 @@ public class AtribuicaoNota implements OpcoesCommand {
 
 		db.salvaNotas(revisao_notas);
 	}
-
-	@Override
-	public void pedeInformacao() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
