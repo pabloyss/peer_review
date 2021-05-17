@@ -17,13 +17,13 @@ public class UsuarioUI {
 	}
 
 	public void getComando() throws IOException {
-	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Digite uma opcao: ");
-		String option = reader.readLine();
-		while (option != "") {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String option;
+		do {
+			System.out.print("Digite uma opcao: ");
+			option = reader.readLine();
 			OpcoesCommand opcoesCommand = mapa.get(option);
 			opcoesCommand.execute();
-			
-		}
+		} while (option != ""); 
 	}
 }

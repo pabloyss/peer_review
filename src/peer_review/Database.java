@@ -8,7 +8,7 @@ public class Database {
     private final List<Conferencia> conferencias;
     private final List<Pesquisador> pesquisadores;
     private final List<Artigo> artigos;
-    private List<RevisaoNotas> revisaoNotas;
+    private final List<RevisaoNotas> revisaoNotas;
     private final List<Universidade> universidades;
     private final List<TopicoPesquisa> topicosPesquisa;
 
@@ -205,6 +205,17 @@ public class Database {
         return this.artigos;
     }
     
+    public List<Artigo> buscaArtigosConferencia(String sigla){
+        List<Artigo> artigosConferencia = null;
+        for(int i = 0; i < artigos.size(); i++)
+    	{
+    		if(sigla == artigos.get(i).getConferencia().getSigla()){
+                artigosConferencia.add(artigos.get(i));
+            }
+    	}
+        return artigosConferencia;
+    }
+
     @SuppressWarnings("null")
 	public ArrayList<Artigo> buscaTodosArtigosAceitos() {
     	
@@ -237,7 +248,7 @@ public class Database {
         return this.revisaoNotas;
     }
     
-    public void salvaNotas(List<RevisaoNotas> notas) {
-        this.revisaoNotas = notas;
+    public void salvaNota(RevisaoNotas nota) {
+        this.revisaoNotas.add(nota);
     }
 }

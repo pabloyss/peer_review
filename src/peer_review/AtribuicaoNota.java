@@ -68,12 +68,8 @@ public class AtribuicaoNota implements OpcoesCommand {
 		Artigo artigo = artigos.get(id_artigo - 1);
 		Pesquisador revisor = revisores.get(id_revisor - 1);
 
-		List<RevisaoNotas> revisao_notas = db.pegaTodasNotas();
-
 		RevisaoNotas novaNota = new RevisaoNotas(artigo, revisor, nota);
 
-		revisao_notas.add(novaNota);
-
-		db.salvaNotas(revisao_notas);
+		db.salvaNota(novaNota);
 	}
 }
