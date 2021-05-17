@@ -1,9 +1,16 @@
 package peer_review;
 
+import java.io.IOException;
+
 public class PeerReviewApp {
 
 	public static void main(String[] args) {
-		UsuárioUI();
+		try {
+			new UsuarioUI().getComando();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

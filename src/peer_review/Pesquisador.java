@@ -47,4 +47,9 @@ public class Pesquisador {
  	public void setTopicosPesquisa(TopicoPesquisa[] topicos_pesquisa) {
  		this.topicos_pesquisa = topicos_pesquisa;
  	}
+ 	
+ 	public String toString() {
+		 return "ID: " + this.id + " | Nome: " + this.nome + " | Afiliação: " + this.afiliacao.getSigla() + " | Topicos de pesquisa: " + this.topicos_pesquisa;
+	 }
+ 	
 }

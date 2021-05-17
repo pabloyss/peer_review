@@ -57,4 +57,8 @@ public class Artigo {
 	public void getTopico_relacionado(TopicoPesquisa topico_relacionado) {
 		this.topico_relacionado = topico_relacionado;
 	}
+
+	public String toString() {
+		return "ID: " + this.id + " | Titulo: " + this.titulo + " | Autor: " + this.autor + " | Conferencia: " + this.conferencia.getSigla() + " | Tópico Relacionado: " + this.topico_relacionado;
+	}
 }

@@ -1,7 +1,29 @@
 package peer_review;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
 public class UsuarioUI {
-	public void getComando(String opcao) {
-		
+	Map<String, OpcoesCommand> mapa;
+	
+	public UsuarioUI() {
+		this.mapa = new HashMap<String, OpcoesCommand>();
+		mapa.put("1", new SelecaoArtigo());
+		mapa.put("2", new AlocacaoArtigo());
+		mapa.put("3", new AtribuicaoNota());
+	}
+
+	public void getComando() throws IOException {
+	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Digite uma opcao: ");
+		String option = reader.readLine();
+		while (option != "") {
+			OpcoesCommand opcoesCommand = mapa.get(option);
+			opcoesCommand.execute();
+			
+		}
 	}
 }
