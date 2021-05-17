@@ -3,6 +3,7 @@ package peer_review;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class AlocacaoArtigo implements OpcoesCommand {
 
@@ -32,7 +33,7 @@ public class AlocacaoArtigo implements OpcoesCommand {
 			e.printStackTrace();
 		}
 		
-		List<Artigos> artigos = db.buscaArtigosConferencia(sigla);
+		//List<Artigo> artigos = db.buscaArtigosConferencia(sigla);
 
 		
 

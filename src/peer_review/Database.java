@@ -68,45 +68,45 @@ public class Database {
 
 
 
-    
+            int temp = 0;
             TopicoPesquisa[] tp1 = {softwareProductLines,softwareReuse, modularity};
-            Pesquisador p1 = new Pesquisador(1,"Joao",ufrgs,tp1);
+            Pesquisador p1 = new Pesquisador(++temp,"Joao",ufrgs,tp1);
             pesquisadores.add(p1);
 
             TopicoPesquisa[] tp2 = {softwareArchitecture,modularity,softwareReuse};
-            Pesquisador p2 = new Pesquisador(2,"Ana",usp,tp2);
+            Pesquisador p2 = new Pesquisador(++temp,"Ana",usp,tp2);
             pesquisadores.add(p2);
 
             TopicoPesquisa[] tp3 = {softwareProductLines,softwareTesting};
-            Pesquisador p3 = new Pesquisador(3,"Manoel",ufrgs,tp3);
+            Pesquisador p3 = new Pesquisador(++temp,"Manoel",ufrgs,tp3);
             pesquisadores.add(p3);
             
             TopicoPesquisa[] tp4 = {softwareProductLines,softwareReuse,softwareArchitecture,aspectOrientedProgramming};
-            Pesquisador p4 = new Pesquisador(4,"Joana",ufrj,tp4);
+            Pesquisador p4 = new Pesquisador(++temp,"Joana",ufrj,tp4);
             pesquisadores.add(p4);
 
             TopicoPesquisa[] tp5 = {softwareArchitecture,modularity,softwareTesting};
-            Pesquisador p5 = new Pesquisador(5,"Miguel",ufrgs,tp5);
+            Pesquisador p5 = new Pesquisador(++temp,"Miguel",ufrgs,tp5);
             pesquisadores.add(p5);
 
             TopicoPesquisa[] tp6 = {softwareReuse,softwareTesting,aspectOrientedProgramming};
-            Pesquisador p6 = new Pesquisador(6,"Beatriz",ufrj,tp6);
+            Pesquisador p6 = new Pesquisador(++temp,"Beatriz",ufrj,tp6);
             pesquisadores.add(p6);
 
             TopicoPesquisa[] tp7 = {aspectOrientedProgramming,modularity,softwareReuse};
-            Pesquisador p7 = new Pesquisador(7,"Suzana",ufrgs,tp7);
+            Pesquisador p7 = new Pesquisador(++temp,"Suzana",ufrgs,tp7);
             pesquisadores.add(p7);
 
             TopicoPesquisa[] tp8 = {modularity,softwareReuse,softwareQuality,softwareProductLines};
-            Pesquisador p8 = new Pesquisador(8,"Natasha",ufrj,tp8);
+            Pesquisador p8 = new Pesquisador(++temp,"Natasha",ufrj,tp8);
             pesquisadores.add(p8);
 
             TopicoPesquisa[] tp9 = {aspectOrientedProgramming,softwareArchitecture};
-            Pesquisador p9 = new Pesquisador(9,"Pedro",usp,tp9);
+            Pesquisador p9 = new Pesquisador(++temp,"Pedro",usp,tp9);
             pesquisadores.add(p9);
 
             TopicoPesquisa[] tp10 = {softwareReuse,modularity,softwareTesting};
-            Pesquisador p10 = new Pesquisador(9,"Carlos",usp,tp10);
+            Pesquisador p10 = new Pesquisador(++temp,"Carlos",usp,tp10);
             pesquisadores.add(p10);
 
          
