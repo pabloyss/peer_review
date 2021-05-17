@@ -87,5 +87,7 @@ public class AtribuicaoNota implements OpcoesCommand {
 
 		RevisaoNotas novaNota = new RevisaoNotas(artigo, revisor, nota);
 		db.salvaNota(novaNota);
+		
+		System.out.println("\nNota "+ nota +" atribuída com sucesso com sucesso ao artigo "+ artigo.getTitulo() +" pelo revisor "+ revisor.getNome() +"!\n\n");
 	}
 }
