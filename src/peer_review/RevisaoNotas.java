@@ -9,19 +9,19 @@ public class RevisaoNotas {
     
     public RevisaoNotas(Artigo artigo, Pesquisador revisor) {
         this.artigo = artigo;
-        this.revisor = revisor
+        this.revisor = revisor;
     }
 
     public RevisaoNotas(Artigo artigo, Pesquisador revisor, int nota) {
         this.artigo = artigo;
-        this.revisor = revisor
+        this.revisor = revisor;
         this.nota = nota;
     }
     
     // Getters
 
 	public Artigo getArtigo() {
-        return this.artigo
+        return this.artigo;
     }
 
     public Pesquisador getRevisor() {
@@ -34,7 +34,7 @@ public class RevisaoNotas {
 
     // Setters
     
-    public void setArtigo(artigo){
+    public void setArtigo(Artigo artigo){
         this.artigo = artigo;
     }
 
@@ -42,7 +42,7 @@ public class RevisaoNotas {
         this.revisor = revisor;
     }
     
-    public void setNota(nota){
+    public void setNota(int nota){
         this.nota = nota;
     }
 }

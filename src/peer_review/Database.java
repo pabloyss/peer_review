@@ -8,7 +8,7 @@ public class Database {
     private final Collection<Conferencia> conferencias;
     private final Collection<Pesquisador> pesquisadores;
     private final Collection<Artigo> artigos;
-    private final Collection<RevisaoNotas> revisaoNotas;
+    private Collection<RevisaoNotas> revisaoNotas;
     private final Collection<Universidade> universidades;
     private final Collection<TopicoPesquisa> topicosPesquisa;
 
@@ -204,8 +204,40 @@ public class Database {
     public Collection<Artigo> buscaTodosArtigos() {
         return this.artigos;
     }
+    
+    @SuppressWarnings("null")
+	public ArrayList<Artigo> buscaTodosArtigosAceitos() {
+    	
+    	ArrayList<Artigo> artigosAceitos = null;
+    	for(int i = 0; i < revisaoNotas.size(); i++)
+    	{
+    		Artigo artigo = ((ArrayList<RevisaoNotas>) revisaoNotas).get(i).getArtigo();
+    		artigosAceitos.add(artigo);
+    	}
+    	return artigosAceitos;
+    	
+    }
 
     public Collection<Pesquisador> buscaTodosPesquisadores() {
         return this.pesquisadores;
+    }
+
+    public Boolean buscaConferenciaSigla(String sigla){
+        
+    	for(int i = 0; i < conferencias.size(); i++)
+    	{
+    		if(sigla  == ((ArrayList<Conferencia>) conferencias).get(i).getSigla());
+    			if()
+    	  return true;
+    	}
+    	return false;
+    }
+
+    public Collection<RevisaoNotas> pegaTodasNotas() {
+        return this.revisaoNotas;
+    }
+    
+    public void salvaNotas(Collection<RevisaoNotas> notas) {
+        this.revisaoNotas = notas;
     }
 }
