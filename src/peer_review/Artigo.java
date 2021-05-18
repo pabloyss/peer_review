@@ -59,6 +59,6 @@ public class Artigo {
 	}
 
 	public String toString() {
-		return "ID: " + this.id + " | Titulo: " + this.titulo + " | Autor: " + this.autor + " | Conferencia: " + this.conferencia.getSigla() + " | Tópico Relacionado: " + this.topico_relacionado;
+		return "ID: " + this.id + " | Título: " + this.titulo + " | Autor: " + this.autor.getNome() + " | Conferencia: " + this.conferencia.getSigla() + " | Tópico Relacionado: " + this.topico_relacionado.getNome();
 	}
 }

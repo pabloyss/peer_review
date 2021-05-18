@@ -49,7 +49,13 @@ public class Pesquisador {
  	}
  	
  	public String toString() {
-		 return "ID: " + this.id + " | Nome: " + this.nome + " | Afiliação: " + this.afiliacao.getSigla() + " | Topicos de pesquisa: " + this.topicos_pesquisa;
+ 		String aux = "";
+ 		aux += "ID: " + this.id + " | Nome: " + this.nome + " | Afiliação: " + this.afiliacao.getSigla() + " | Tópicos de pesquisa: ";
+ 		for (TopicoPesquisa topico : this.topicos_pesquisa) {
+ 			aux += topico.getNome()+ ", ";
+ 		}
+ 		aux = aux.substring(0, aux.length() - 2);
+		return aux;
 	 }
  	
 }

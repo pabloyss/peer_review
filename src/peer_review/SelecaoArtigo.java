@@ -7,22 +7,24 @@ import java.util.ArrayList;
 
 public class SelecaoArtigo implements OpcoesCommand{
 
-    public SelecaoArtigo(){}
+	private final Database database;
+	
+    public SelecaoArtigo(Database database){
+    	this.database = database;
+    }
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		Database db = new Database(false);
-		ArrayList<Artigo> artigosAceitos = (ArrayList<Artigo>) db.buscaTodosArtigosAceitos();
-
+		ArrayList<Artigo> artigosAceitos = (ArrayList<Artigo>) database.buscaTodosArtigosAceitos();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String sigla = null;
 		try {
-			sigla = this.pedeInformacao();
+			sigla = reader.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if (db.buscaConferenciaSigla(sigla)) {
+		if (database.buscaConferenciaSigla(sigla)) {
 			
 		}
 		else {
@@ -33,13 +35,4 @@ public class SelecaoArtigo implements OpcoesCommand{
 		
 
 		}
-	
-	public String pedeInformacao() throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Digite a sigla da conferencia: ");
-		String sigla = reader.readLine();
-
-		return sigla;
-	}
-
 }

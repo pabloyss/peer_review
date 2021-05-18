@@ -1,5 +1,4 @@
 package peer_review;
-import java.util.Collection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -206,7 +205,7 @@ public class Database {
     }
     
     public List<Artigo> buscaArtigosConferencia(String sigla){
-        List<Artigo> artigosConferencia = null;
+        List<Artigo> artigosConferencia = new ArrayList<Artigo>();
         for(int i = 0; i < artigos.size(); i++)
     	{
     		if(sigla == artigos.get(i).getConferencia().getSigla()){
