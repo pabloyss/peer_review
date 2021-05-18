@@ -10,6 +10,7 @@ public class RevisaoNotas {
     public RevisaoNotas(Artigo artigo, Pesquisador revisor) {
         this.artigo = artigo;
         this.revisor = revisor;
+        this.nota = -5;
     }
 
     public RevisaoNotas(Artigo artigo, Pesquisador revisor, int nota) {

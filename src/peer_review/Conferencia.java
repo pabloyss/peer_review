@@ -6,18 +6,20 @@ public class Conferencia {
 	private String sigla;
 	private Pesquisador[] membros_comite;
 	private Artigo[] lista_artigos;
-	private String stauts;
+	private String status;
 	
 	// Construtor
 	public Conferencia(String sigla, Pesquisador[] membros_comite) {
 		this.sigla = sigla;
 		this.membros_comite = membros_comite;
+		this.status = "NÃO ALOCADA";
 	}
 
 	public Conferencia(String sigla, Pesquisador[] membros_comite, Artigo[] lista_artigos) {
 		this.sigla = sigla;
 		this.membros_comite = membros_comite;
 		this.lista_artigos = lista_artigos;
+		this.status = "ALOCADA"	;
 	}
 	
 	// Getters
@@ -32,6 +34,10 @@ public class Conferencia {
 
 	public Artigo[] getLista_artigos(){
 		return this.lista_artigos;
+	}
+	
+	public String getStatus() {
+		return this.status;
 	}
 
 	
@@ -48,5 +54,4 @@ public class Conferencia {
 	public void setLista_artigos(Artigo[] lista_artigos){
 		this.lista_artigos = lista_artigos;
 	}
-
 }

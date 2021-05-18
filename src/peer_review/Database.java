@@ -215,32 +215,47 @@ public class Database {
         return artigosConferencia;
     }
 
-    @SuppressWarnings("null")
-	public ArrayList<Artigo> buscaTodosArtigosAceitos() {
-    	
-    	ArrayList<Artigo> artigosAceitos = null;
-    	for(int i = 0; i < revisaoNotas.size(); i++)
-    	{
-    		Artigo artigo = ((ArrayList<RevisaoNotas>) revisaoNotas).get(i).getArtigo();
-    		artigosAceitos.add(artigo);
-    	}
-    	return artigosAceitos;
-    	
-    }
-
     public List<Pesquisador> buscaTodosPesquisadores() {
         return this.pesquisadores;
     }
 
-    public Boolean buscaConferenciaSigla(String sigla){
-    	for(int i = 0; i < conferencias.size(); i++) {
-    		if(sigla  == ((ArrayList<Conferencia>) conferencias).get(i).getSigla());
-    			//if()
-    	  return true;
+    public Boolean existeConferencia(String sigla){
+    	for(Conferencia conferencia : this.conferencias) {
+    		if(sigla.equals(conferencia.getSigla())) {
+    			return true;
+    		}
     	}
     	return false;
     }
-
+    
+    public Conferencia pegaConferencia(String sigla) {
+    	for (Conferencia conferencia : this.conferencias) {
+    		if (conferencia.getSigla().equals(sigla.toLowerCase())) {
+    			return conferencia;
+    		}
+    	}
+		return null;
+    }
+    
+    public Boolean artigoTemNota(Artigo artigo) {
+    	for (RevisaoNotas revisao : this.revisaoNotas) {
+    		if (revisao.getArtigo().equals(artigo)) {
+    			if (revisao.getNota() != -5) {
+    				return true;
+    			}
+    		}
+    	}
+    	return false;
+    }
+    
+    public Double pegaMediaNota(Artigo artigo) {
+    	Double media = 0.0;
+    	for (RevisaoNotas revisao : this.revisaoNotas) {
+    		media += revisao.getNota();
+    	}
+    	return media / this.revisaoNotas.size();
+    }
+    
     public List<RevisaoNotas> pegaTodasNotas() {
         return this.revisaoNotas;
     }

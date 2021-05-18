@@ -21,7 +21,7 @@ public class UsuarioUI {
 	public void getComando() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String option;
-		boolean sair = false;
+		Boolean sair = false;
 		do {
 			menu();
 			option = reader.readLine();
