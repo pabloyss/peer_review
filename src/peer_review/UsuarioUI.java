@@ -13,7 +13,7 @@ public class UsuarioUI {
 	public UsuarioUI() {
 		database = new Database();
 		this.mapa = new HashMap<String, OpcoesCommand>();
-		mapa.put("1", new SelecaoArtigo());
+		mapa.put("1", new SelecaoArtigo(database));
 		mapa.put("2", new AlocacaoArtigo());
 		mapa.put("3", new AtribuicaoNota(database));
 	}

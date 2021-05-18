@@ -6,6 +6,7 @@ public class Conferencia {
 	private String sigla;
 	private Pesquisador[] membros_comite;
 	private Artigo[] lista_artigos;
+	private String stauts;
 	
 	// Construtor
 	public Conferencia(String sigla, Pesquisador[] membros_comite) {

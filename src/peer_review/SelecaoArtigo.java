@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SelecaoArtigo implements OpcoesCommand{
 
@@ -14,7 +15,7 @@ public class SelecaoArtigo implements OpcoesCommand{
     }
 	@Override
 	public void execute() {
-		ArrayList<Artigo> artigosAceitos = (ArrayList<Artigo>) database.buscaTodosArtigosAceitos();
+		List<Artigo> artigosAceitos = database.buscaTodosArtigosAceitos();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String sigla = null;
 		try {
@@ -24,7 +25,7 @@ public class SelecaoArtigo implements OpcoesCommand{
 			e.printStackTrace();
 		}
 		
-		if (database.buscaConferenciaSigla(sigla)) {
+		if (!database.buscaConferenciaSigla(sigla)) {
 			
 		}
 		else {

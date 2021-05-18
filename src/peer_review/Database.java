@@ -233,9 +233,7 @@ public class Database {
     }
 
     public Boolean buscaConferenciaSigla(String sigla){
-        
-    	for(int i = 0; i < conferencias.size(); i++)
-    	{
+    	for(int i = 0; i < conferencias.size(); i++) {
     		if(sigla  == ((ArrayList<Conferencia>) conferencias).get(i).getSigla());
     			//if()
     	  return true;
