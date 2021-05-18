@@ -157,6 +157,21 @@ public class Database {
 
             Artigo a11 = new Artigo(11,"Structural Testing",p10,icse,softwareTesting);
             artigos.add(a11);
+            
+            for (Conferencia conferencia : this.conferencias) {
+            	switch (conferencia.getSigla()) {
+            	case "ICSE":
+            		Artigo[] artigos = {a7, a8, a9, a10, a11};
+            		conferencia.adicionaArtigo(artigos);
+            		break;
+            	case "SBES":
+            		Artigo[] artigos1 = {a1};
+            		conferencia.adicionaArtigo(artigos1);
+            	case "FSE":
+            		Artigo[] artigos2 = {a2, a3, a4, a5, a6};
+            		conferencia.adicionaArtigo(artigos2);
+            	}
+            }
 
 
 
@@ -221,7 +236,7 @@ public class Database {
 
     public Boolean existeConferencia(String sigla){
     	for(Conferencia conferencia : this.conferencias) {
-    		if(sigla.equals(conferencia.getSigla())) {
+    		if(sigla.toUpperCase().equals(conferencia.getSigla())) {
     			return true;
     		}
     	}
@@ -230,7 +245,7 @@ public class Database {
     
     public Conferencia pegaConferencia(String sigla) {
     	for (Conferencia conferencia : this.conferencias) {
-    		if (conferencia.getSigla().equals(sigla.toLowerCase())) {
+    		if (conferencia.getSigla().equals(sigla.toUpperCase())) {
     			return conferencia;
     		}
     	}

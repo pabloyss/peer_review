@@ -19,7 +19,7 @@ public class Conferencia {
 		this.sigla = sigla;
 		this.membros_comite = membros_comite;
 		this.lista_artigos = lista_artigos;
-		this.status = "ALOCADA"	;
+		this.status = "ALOCADA";
 	}
 	
 	// Getters
@@ -53,5 +53,10 @@ public class Conferencia {
 
 	public void setLista_artigos(Artigo[] lista_artigos){
 		this.lista_artigos = lista_artigos;
+	}
+	
+	public void adicionaArtigo(Artigo[] artigos) {
+		this.lista_artigos = artigos;
+		this.status = "ALOCADA";
 	}
 }

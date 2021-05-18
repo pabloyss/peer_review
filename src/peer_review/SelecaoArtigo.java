@@ -15,8 +15,8 @@ public class SelecaoArtigo implements OpcoesCommand{
     }
 	@Override
 	public void execute() {
-		List<Artigo> artigosAceitos;
-		List<Artigo> artigosRejeitados;
+		List<Artigo> artigosAceitos = new ArrayList<Artigo>();
+		List<Artigo> artigosRejeitados = new ArrayList<Artigo>();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String sigla = null;
 		Boolean aviso = false;
@@ -40,18 +40,29 @@ public class SelecaoArtigo implements OpcoesCommand{
 		if (conferencia.getStatus().equals("NÃO ALOCADA")) {
 			System.out.println("--->  AVISO: A conferência ainda não foi alocada!  <---\n");
 			aviso = true;
-		}
-		for (Artigo artigo : conferencia.getLista_artigos()) {
-			if (!database.artigoTemNota(artigo)) {
-				System.out.println("--->  AVISO: A conferência possuí artigos com notas não recebidas!  <---\n");
-				aviso = true;
+		} else {
+			for (Artigo artigo : conferencia.getLista_artigos()) {
+				if (!database.artigoTemNota(artigo)) {
+					System.out.println("--->  AVISO: A conferência possuí artigos com notas não recebidas!  <---\n");
+					aviso = true;
+				}
 			}
 		}
-		
 		if (!aviso) {
 			for (Artigo artigo : conferencia.getLista_artigos()) {
 				media = database.pegaMediaNota(artigo);
+				
+				if (media > 0.0) {
+					artigosAceitos.add(artigo);
+				} else {
+					artigosRejeitados.add(artigo);
+				}
 			}
+			
+			System.out.println("Artigos Aceitos:");
+			System.out.println(artigosAceitos);
+			System.out.println("\n\nArtigos Rejeitados:");
+			System.out.println(artigosRejeitados);
 		}
 	}
 }
